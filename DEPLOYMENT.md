@@ -69,7 +69,7 @@ Deploy on your existing EC2 instance with manual setup.
 3. **Poll SCM**: `* * * * *`
 4. **Build Steps**:
    ```bash
-   cd application
+   cd application  # Source: https://github.com/SillyCookies-s/ci-cd-application/tree/main/application
    docker compose down || true
    docker compose up --build -d
    ```

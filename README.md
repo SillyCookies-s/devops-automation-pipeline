@@ -53,6 +53,7 @@ A complete CI/CD pipeline demonstration using Flask applications, Docker, Jenkin
 - **Backend**: Flask API serving tools data via REST endpoints
 - **Infrastructure**: Terraform for automated AWS EC2 provisioning (optional)
 - **CI/CD**: Jenkins pipeline with automated deployment on code changes
+- **Source Code**: [GitHub Repository](https://github.com/SillyCookies-s/ci-cd-application.git) - Complete project with applications and infrastructure
 
 ### Infrastructure Options
 - **Terraform (Included)**: Automated EC2 provisioning with Jenkins & Docker pre-installed
@@ -136,6 +137,8 @@ terraform apply
 ├── SETUP.md            # Detailed setup instructions
 └── DEPLOYMENT.md       # AWS deployment guide
 ```
+
+**📂 [View Application Code](https://github.com/SillyCookies-s/ci-cd-application/tree/main/application)** - Complete Flask applications with Docker configuration
 
 ## 🔄 CI/CD Pipeline Features
 

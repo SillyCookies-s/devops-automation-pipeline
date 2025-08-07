@@ -16,7 +16,7 @@
 
 2. **Run Application**
    ```bash
-   cd application
+   cd application  # View code: https://github.com/SillyCookies-s/ci-cd-application/tree/main/application
    docker compose up --build -d
    ```
 
