@@ -36,8 +36,8 @@ A complete CI/CD pipeline demonstration using Flask applications, Docker, Jenkin
 ```
 1. Code Push        2. Jenkins Poll     3. Build Trigger    4. Deploy
    ┌─────────┐         ┌─────────┐         ┌─────────┐        ┌─────────┐
-   │ git push│────────▶│ Every   │────────▶│ Pull    │───────▶│ docker  │
-   │ to main │         │ minute  │         │ latest  │        │ compose │
+   │git push │────────▶│ Every   │────────▶│ Pull    │───────▶│ docker  │
+   │to master│         │ minute  │         │ latest  │        │ compose │
    └─────────┘         │ check   │         │ code    │        │ up      │
                        └─────────┘         └─────────┘        └─────────┘
                                                                     │
@@ -53,7 +53,7 @@ A complete CI/CD pipeline demonstration using Flask applications, Docker, Jenkin
 - **Backend**: Flask API serving tools data via REST endpoints
 - **Infrastructure**: Terraform for automated AWS EC2 provisioning (optional)
 - **CI/CD**: Jenkins pipeline with automated deployment on code changes
-- **Source Code**: [GitHub Repository](https://github.com/SillyCookies-s/ci-cd-application.git) - Complete project with applications and infrastructure
+- **Source Code**: [GitHub Repository](https://github.com/SillyCookies-s/devops-automation-pipeline.git) - Complete project with applications and infrastructure
 
 ### Infrastructure Options
 - **Terraform (Included)**: Automated EC2 provisioning with Jenkins & Docker pre-installed
@@ -72,8 +72,8 @@ A complete CI/CD pipeline demonstration using Flask applications, Docker, Jenkin
 ### Option 1: Local Development (Manual)
 ```bash
 # Clone the repository
-git clone https://github.com/SillyCookies-s/ci-cd-application.git
-cd ci-cd-application
+git clone https://github.com/SillyCookies-s/devops-automation-pipeline.git
+cd devops-automation-pipeline
 
 # Run with Docker Compose
 cd application
@@ -116,29 +116,31 @@ terraform apply
 ## 📁 Project Structure
 
 ```
-├── application/           # Main application code
-│   ├── backend/          # Flask API backend
-│   │   ├── app.py        # Main backend application
+├── application/            # Main application code
+│   ├── backend/            # Flask API backend
+│   │   ├── app.py          # Main backend application
 │   │   ├── data_example.py # Sample data
-│   │   ├── Dockerfile    # Backend container config
+│   │   ├── Dockerfile      # Backend container config
 │   │   └── requirements.txt
-│   ├── frontend/         # Flask web frontend
-│   │   ├── templates/    # HTML templates
-│   │   ├── app.py        # Frontend application
-│   │   ├── Dockerfile    # Frontend container config
-│   │   ├── .env          # Environment variables
+│   ├── frontend/           # Flask web frontend
+│   │   ├── templates/      # HTML templates
+│   │   ├── app.py          # Frontend application
+│   │   ├── Dockerfile      # Frontend container config
+│   │   ├── .env            # Environment variables
 │   │   └── requirements.txt
-│   └── docker-compose.yml # Multi-container orchestration
-├── terraform/            # AWS infrastructure as code
-│   ├── main.tf          # Main infrastructure config
+│   └── docker-compose.yml  # Multi-container orchestration
+├── terraform/              # AWS infrastructure as code
+│   ├── main.tf             # Main infrastructure config
 │   ├── variable_example.tf # Variable reference
-│   └── ...              # Other Terraform files
-├── README.md            # This file
-├── SETUP.md            # Detailed setup instructions
-└── DEPLOYMENT.md       # AWS deployment guide
+│   └── ...                 # Other Terraform files
+├── README.md               # This file
+├── SETUP.md                # Detailed setup instructions
+└── DEPLOYMENT.md           # AWS deployment guide
 ```
 
-**📂 [View Application Code](https://github.com/SillyCookies-s/ci-cd-application/tree/main/application)** - Complete Flask applications with Docker configuration
+**📂 [View Application Code](application/)** - Complete Flask applications with Docker configuration
+
+> **Note**: If clicking the application folder doesn't work, use this direct link: https://github.com/SillyCookies-s/ci-cd-application.git
 
 ## 🔄 CI/CD Pipeline Features
 
@@ -166,9 +168,9 @@ terraform apply
 ### CI/CD Job Configuration
 1. **Create Freestyle Project**
 2. **Source Code Management**:
-   - Repository: `https://github.com/SillyCookies-s/ci-cd-application.git`
+   - Repository: `https://github.com/SillyCookies-s/devops-automation-pipeline.git`
    - Credentials: GitHub PAT token
-   - Branch: `*/main` or `*/master`
+   - Branch: `*/master`
 
 3. **Build Triggers**:
    - Poll SCM: `* * * * *` (every minute)

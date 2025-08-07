@@ -10,8 +10,8 @@
 ### Steps
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/SillyCookies-s/ci-cd-application.git
-   cd ci-cd-application
+   git clone https://github.com/SillyCookies-s/devops-automation-pipeline.git
+   cd devops-automation-pipeline
    ```
 
 2. **Run Application**

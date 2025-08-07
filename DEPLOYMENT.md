@@ -19,8 +19,8 @@ Deploy on your existing EC2 instance with manual setup.
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/SillyCookies-s/ci-cd-application.git
-   cd ci-cd-application/terraform
+   git clone https://github.com/SillyCookies-s/devops-automation-pipeline.git
+   cd devops-automation-pipeline/terraform
    ```
 
 2. **⚠️ Setup Your AWS Credentials**
@@ -65,11 +65,11 @@ Deploy on your existing EC2 instance with manual setup.
 *Jenkins polling log showing Git change detection*
 
 1. **New Item** → **Freestyle Project**
-2. **Git**: `https://github.com/SillyCookies-s/ci-cd-application.git`
+2. **Git**: `https://github.com/SillyCookies-s/devops-automation-pipeline.git`
 3. **Poll SCM**: `* * * * *`
 4. **Build Steps**:
    ```bash
-   cd application  # Source: https://github.com/SillyCookies-s/ci-cd-application/tree/main/application
+   cd application  # Source: https://github.com/SillyCookies-s/devops-automation-pipeline/tree/main/application
    docker compose down || true
    docker compose up --build -d
    ```
