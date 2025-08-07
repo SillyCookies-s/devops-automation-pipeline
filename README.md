@@ -4,6 +4,51 @@ A complete CI/CD pipeline demonstration using Flask applications, Docker, Jenkin
 
 ## 🏗️ Architecture
 
+### System Overview
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────────┐
+│   Developer     │    │     GitHub       │    │    AWS EC2          │
+│                 │    │   Repository     │    │                     │
+│  ┌───────────┐  │    │                  │    │  ┌───────────────┐  │
+│  │    Code   │──┼────┤  Source Control  │    │  │    Jenkins    │  │
+│  │  Changes  │  │    │                  │    │  │   CI/CD       │  │
+│  └───────────┘  │    │                  │    │  │   Server      │  │
+└─────────────────┘    └──────────────────┘    │  └───────┬───────┘  │
+                                                │          │          │
+                                                │          ▼          │
+                                                │  ┌───────────────┐  │
+                                                │  │    Docker     │  │
+                                                │  │  Containers   │  │
+                                                │  │               │  │
+                                                │  │ ┌───────────┐ │  │
+                                                │  │ │ Frontend  │ │  │
+                                                │  │ │   :5000   │ │  │
+                                                │  │ └───────────┘ │  │
+                                                │  │ ┌───────────┐ │  │
+                                                │  │ │ Backend   │ │  │
+                                                │  │ │   :3000   │ │  │
+                                                │  │ └───────────┘ │  │
+                                                │  └───────────────┘  │
+                                                └─────────────────────┘
+```
+
+### CI/CD Pipeline Flow
+```
+1. Code Push        2. Jenkins Poll     3. Build Trigger    4. Deploy
+   ┌─────────┐         ┌─────────┐         ┌─────────┐        ┌─────────┐
+   │ git push│────────▶│ Every   │────────▶│ Pull    │───────▶│ docker  │
+   │ to main │         │ minute  │         │ latest  │        │ compose │
+   └─────────┘         │ check   │         │ code    │        │ up      │
+                       └─────────┘         └─────────┘        └─────────┘
+                                                                    │
+                                                                    ▼
+                                                              ┌─────────┐
+                                                              │ Live    │
+                                                              │ Apps    │
+                                                              └─────────┘
+```
+
+### Component Details
 - **Frontend**: Flask web application serving HTML templates
 - **Backend**: Flask API serving tools data via REST endpoints
 - **Infrastructure**: Terraform for automated AWS EC2 provisioning (optional)
@@ -221,6 +266,26 @@ terraform apply
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+## 📸 Screenshots
+
+### AWS Infrastructure
+![EC2 Instance](screenshots/aws-ec2-instance.png)
+*EC2 instance with matching IP address*
+
+### Jenkins CI/CD Pipeline
+![Jenkins Dashboard](screenshots/jenkins-dashboard.png)
+*Jenkins dashboard showing automated builds*
+
+![Jenkins Console](screenshots/jenkins-console-output.png)
+*Console output of successful deployment*
+
+### Live Applications
+![Frontend Application](screenshots/frontend-app.png)
+*Frontend running at `<ec2-ip>:5000`*
+
+![Backend API](screenshots/backend-api.png)
+*Backend API at `<ec2-ip>:3000/jet`*
 
 ## 🆘 Support
 

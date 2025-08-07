@@ -83,3 +83,6 @@ secrets/
 # Application specific
 node_modules/
 coverage/
+
+# Include screenshots for documentation
+!screenshots/
