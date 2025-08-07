@@ -14,22 +14,22 @@ A complete CI/CD pipeline demonstration using Flask applications, Docker, Jenkin
 │  │  Changes  │  │    │                  │    │  │   CI/CD       │  │
 │  └───────────┘  │    │                  │    │  │   Server      │  │
 └─────────────────┘    └──────────────────┘    │  └───────┬───────┘  │
-                                                │          │          │
-                                                │          ▼          │
-                                                │  ┌───────────────┐  │
-                                                │  │    Docker     │  │
-                                                │  │  Containers   │  │
-                                                │  │               │  │
-                                                │  │ ┌───────────┐ │  │
-                                                │  │ │ Frontend  │ │  │
-                                                │  │ │   :5000   │ │  │
-                                                │  │ └───────────┘ │  │
-                                                │  │ ┌───────────┐ │  │
-                                                │  │ │ Backend   │ │  │
-                                                │  │ │   :3000   │ │  │
-                                                │  │ └───────────┘ │  │
-                                                │  └───────────────┘  │
-                                                └─────────────────────┘
+                                               │          │          │
+                                               │          ▼          │
+                                               │  ┌───────────────┐  │
+                                               │  │    Docker     │  │
+                                               │  │  Containers   │  │
+                                               │  │               │  │
+                                               │  │ ┌───────────┐ │  │
+                                               │  │ │ Frontend  │ │  │
+                                               │  │ │   :5000   │ │  │
+                                               │  │ └───────────┘ │  │
+                                               │  │ ┌───────────┐ │  │
+                                               │  │ │ Backend   │ │  │
+                                               │  │ │   :3000   │ │  │
+                                               │  │ └───────────┘ │  │
+                                               │  └───────────────┘  │
+                                               └─────────────────────┘
 ```
 
 ### CI/CD Pipeline Flow
@@ -270,22 +270,35 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📸 Screenshots
 
 ### AWS Infrastructure
-![EC2 Instance](screenshots/aws-ec2-instance.png)
+![EC2 Instance](screenshots/ec2-instance.png)
 *EC2 instance with matching IP address*
 
 ### Jenkins CI/CD Pipeline
-![Jenkins Dashboard](screenshots/jenkins-dashboard.png)
-*Jenkins dashboard showing automated builds*
+![Jenkins Console Beginning](screenshots/console-log-begining.png)
+*Jenkins console output - build start*
 
-![Jenkins Console](screenshots/jenkins-console-output.png)
-*Console output of successful deployment*
+![Jenkins Console End](screenshots/console-log-end.png)
+*Jenkins console output - successful deployment*
 
-### Live Applications
-![Frontend Application](screenshots/frontend-app.png)
-*Frontend running at `<ec2-ip>:5000`*
+![Jenkins Polling Log](screenshots/after-git-update-jenkin-polling-log.png)
+*Jenkins polling log after Git changes*
 
-![Backend API](screenshots/backend-api.png)
-*Backend API at `<ec2-ip>:3000/jet`*
+### Live Applications - Before Git Change
+![Frontend Before](screenshots/frontend-5000-before-git-change.png)
+*Frontend at `<ec2-ip>:5000` before code changes*
+
+![Backend Before](screenshots/backend-jet-before-git-change.png)
+*Backend API at `<ec2-ip>:3000/jet` before changes*
+
+### Live Applications - After Git Change
+![Frontend After](screenshots/frontend-5000-after-git-change.png)
+*Frontend at `<ec2-ip>:5000` after code changes*
+
+![Backend After](screenshots/backend-jet-after-git-change.png)
+*Backend API at `<ec2-ip>:3000/jet` after changes*
+
+![Backend Health](screenshots/backend.png)
+*Backend health check endpoint*
 
 ## 🆘 Support
 

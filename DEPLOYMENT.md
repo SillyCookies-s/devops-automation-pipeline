@@ -56,8 +56,14 @@ Deploy on your existing EC2 instance with manual setup.
    # Access: http://<EC2_IP>:8080
    # Password: sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
+   
+   ![AWS EC2 Instance](screenshots/ec2-instance.png)
+   *EC2 instance with matching IP address*
 
 ### Jenkins Job Setup
+![Jenkins Polling Log](screenshots/after-git-update-jenkin-polling-log.png)
+*Jenkins polling log showing Git change detection*
+
 1. **New Item** → **Freestyle Project**
 2. **Git**: `https://github.com/SillyCookies-s/ci-cd-application.git`
 3. **Poll SCM**: `* * * * *`
@@ -67,11 +73,20 @@ Deploy on your existing EC2 instance with manual setup.
    docker compose down || true
    docker compose up --build -d
    ```
+   
+   ![Jenkins Console Output](screenshots/console-log-end.png)
+   *Console output of successful deployment*
 
 ### Verify Deployment
 - Frontend: `http://<EC2_IP>:5000`
 - Backend: `http://<EC2_IP>:3000`
 - API: `http://<EC2_IP>:3000/jet`
+
+![Frontend Application](screenshots/frontend-5000-after-git-change.png)
+*Frontend running at `<ec2-ip>:5000`*
+
+![Backend API](screenshots/backend-jet-after-git-change.png)
+*Backend API at `<ec2-ip>:3000/jet`*
 
 ## 💻 Option 2: Existing EC2 Deployment
 

@@ -24,6 +24,8 @@
    - Frontend: http://localhost:5000
    - Backend: http://localhost:3000
    - API: http://localhost:3000/jet
+   
+
 
 ## ☁️ AWS Deployment
 
@@ -58,6 +60,10 @@
 
 ### Jenkins Configuration
 1. **Access Jenkins**: `http://<ec2-ip>:8080`
+   
+   ![Jenkins Polling Log](screenshots/after-git-update-jenkin-polling-log.png)
+   *Jenkins polling log showing Git change detection*
+
 2. **Get password**: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
 3. **Create Freestyle Project**
 4. **Configure Git**: Repository URL + GitHub PAT token
@@ -68,6 +74,9 @@
    docker compose down || true
    docker compose up --build -d
    ```
+   
+   ![Jenkins Console End](screenshots/console-log-end.png)
+   *Console output of successful deployment*
 
 ## 🐛 Troubleshooting
 
