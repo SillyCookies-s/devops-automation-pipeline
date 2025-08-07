@@ -1,0 +1,85 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker
+.dockerignore
+
+# Terraform - Sensitive Files
+*.tfstate
+*.tfstate.*
+*.tfvars
+variable.tf
+.terraform/
+.terraform.lock.hcl
+terraform.tfplan
+terraform.tfstate.backup
+planv1
+plan*
+
+# Keep example files
+!variable_example.tf
+
+# Jenkins
+.jenkins/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Security - Never commit these
+*.pem
+*.key
+secrets/
+.env.production
+.env.local
+
+# Application specific
+node_modules/
+coverage/
