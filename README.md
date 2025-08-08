@@ -170,7 +170,7 @@ terraform apply
 2. **Source Code Management**:
    - Repository: `https://github.com/SillyCookies-s/devops-automation-pipeline.git`
    - Credentials: GitHub PAT token
-   - Branch: `*/master`
+   - Branch: `*/Master`
 
 3. **Build Triggers**:
    - Poll SCM: `* * * * *` (every minute)
@@ -184,27 +184,48 @@ terraform apply
    ```
 
 ### Suggested Post-Build Actions
-- **Archive Artifacts**: `application/**`
 - **Publish Test Results**: If you add tests
 - **Email Notifications**: On build failure/success
 - **Slack Integration**: Team notifications
 - **Build Status Badge**: For README
 
+### Alternative: Pipeline as Code
+For advanced users, a `Jenkinsfile` is included in the application directory for Pipeline projects:
+
+**Current Jenkinsfile Configuration:**
+- **Repository**: `https://github.com/SillyCookies-s/ci-cd-application.git`
+- **Branch**: `Master`
+- **Credentials**: `SillyCookies-s/**************************` (masked)
+- **Polling**: Every minute (`* * * * *`)
+- **Webhook**: GitHub push integration
+- **Deployment**: Automated Docker Compose rebuild
+
+**Setup Requirements:**
+1. **Create Pipeline Job** (instead of Freestyle)
+2. **Add GitHub PAT Token** to Jenkins credentials with ID: `github-pat-token`
+3. **Point Pipeline to Repository** - Jenkins will auto-detect the Jenkinsfile
+
+**Features:**
+- Automated polling every minute
+- GitHub webhook integration
+- Infrastructure as Code approach
+- Version-controlled pipeline configuration
+
 ## 🛠️ Technologies Used
 
-- **Frontend**: Flask, HTML, CSS, JavaScript
-- **Backend**: Flask, Python, CORS
+- **Frontend**        : Flask, HTML, CSS, JavaScript
+- **Backend**         : Flask, Python, CORS
 - **Containerization**: Docker, Docker Compose
-- **CI/CD**: Jenkins (Freestyle Project)
-- **Infrastructure**: Terraform, AWS EC2
-- **Version Control**: Git, GitHub
-- **Monitoring**: Jenkins Build History
+- **CI/CD**           : Jenkins (Freestyle Project)
+- **Infrastructure**  : Terraform, AWS EC2
+- **Version Control** : Git, GitHub
+- **Monitoring**      : Jenkins Build History
 
 ## 📋 Prerequisites
 
 ### For Local Development
 - Docker & Docker Compose
-- Python 3.x
+- Python 
 - Git
 
 ### For AWS Deployment
@@ -215,30 +236,30 @@ terraform apply
 
 ## 🔍 API Endpoints
 
-- `GET /` - Backend health check
+- `GET /`    - Backend health check
 - `GET /jet` - Returns list of tools/technologies used
 
 ## 🎯 Features
 
-- ✅ **Automated CI/CD Pipeline** - Jenkins monitors and deploys changes
-- ✅ **Containerized Microservices** - Docker containers for each service
-- ✅ **Infrastructure as Code** - Terraform for AWS provisioning
-- ✅ **Zero-downtime Deployment** - Docker Compose rolling updates
+- ✅ **Automated CI/CD Pipeline**      - Jenkins monitors and deploys changes
+- ✅ **Containerized Microservices**   - Docker containers for each service
+- ✅ **Infrastructure as Code**        - Terraform for AWS provisioning
+- ✅ **Zero-downtime Deployment**      - Docker Compose rolling updates
 - ✅ **Cross-origin Resource Sharing** - CORS enabled for API access
-- ✅ **Environment Configuration** - .env file support
-- ✅ **Production-ready Setup** - AWS EC2 with security groups
+- ✅ **Environment Configuration**     - .env file support
+- ✅ **Production-ready Setup**        - AWS EC2 with security groups
 
 ## 📝 Important Notes
 
 ### Deployment Timeline
-- **Terraform Apply**: 2-3 minutes
+- **Terraform Apply**              : 2-3 minutes
 - **Jenkins & Docker Installation**: 10-15 minutes
-- **First Build**: 2-3 minutes
-- **Subsequent Builds**: 30-60 seconds
+- **First Build**                  : 2-3 minutes
+- **Subsequent Builds**            : 30-60 seconds
 
 ### Service Management
-- **Jenkins**: May require restart after initial deployment
-- **Docker**: Automatically starts on boot
+- **Jenkins**     : May require restart after initial deployment
+- **Docker**      : Automatically starts on boot
 - **Applications**: Auto-restart on container failure
 
 ### Security
@@ -251,13 +272,13 @@ terraform apply
 
 ### Application Health
 - Frontend: `http://<ec2-ip>:5000`
-- Backend: `http://<ec2-ip>:3000`
-- API: `http://<ec2-ip>:3000/jet`
+- Backend : `http://<ec2-ip>:3000`
+- API     : `http://<ec2-ip>:3000/jet`
 
 ### Jenkins Monitoring
-- Build History: Jenkins Dashboard
+- Build History : Jenkins Dashboard
 - Console Output: Job logs
-- SCM Polling: Repository change detection
+- SCM Polling   : Repository change detection
 
 ## 🤝 Contributing
 
